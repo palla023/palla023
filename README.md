@@ -19,7 +19,7 @@
 
 - 📫 How to reach me **palla09523@gmail.com**
 
-- 📄 Know about my experiences [https://drive.google.com/file/d/17QlsJgVpwL98_yiAASdaHQNcCAB_4Pd8/view?usp=drive_link](https://drive.google.com/file/d/17QlsJgVpwL98_yiAASdaHQNcCAB_4Pd8/view?usp=drive_link)
+- 📄 Know about my experiences [https://drive.google.com/file/d/17QlsJgVpwL98_yiAASdaHQNcCAB_4Pd8/view?usp=drive_link](https://drive.google.com/file/d/1LhAhj56hiUQ9NV58bprU0WRwfgev4H3A/view?usp=drivesdk)
 
 - ⚡ Fun fact **I love creating Projects**
 
