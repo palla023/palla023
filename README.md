@@ -5,8 +5,6 @@
 
 <p align="left"> <a href="https://github.com/ryo-ma/github-profile-trophy"><img src="https://github-profile-trophy.vercel.app/?username=palla023" alt="palla023" /></a> </p>
 
-<p align="left"> <a href="https://twitter.com/" target="blank"><img src="https://img.shields.io/twitter/follow/?logo=twitter&style=for-the-badge" alt="" /></a> </p>
-
 - 🔭 Software Engineer with **5 years** of experience in Full Stack Development, excelling in Java, Spring Boot, and React.js, alongside a robust skill set in Microservices, REST APIs, Docker, AWS, and CI/CD practices for scalable application solution.
 
 - 🌱 I’m currently Working on **ReactJs, Java, Spring Boot**
