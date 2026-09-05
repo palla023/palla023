@@ -1,0 +1,138 @@
+<svg width="850" height="260" viewBox="0 0 850 260" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Background Gradient -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0d14"/>
+      <stop offset="50%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#111827"/>
+    </linearGradient>
+
+    <!-- Accent Glow Gradient -->
+    <radialGradient id="glowTopRight" cx="80%" cy="20%" r="60%">
+      <stop offset="0%" stop-color="#6366f1" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#6366f1" stop-opacity="0"/>
+    </radialGradient>
+    
+    <radialGradient id="glowBottomLeft" cx="15%" cy="85%" r="50%">
+      <stop offset="0%" stop-color="#0ea5e9" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#0ea5e9" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Text Gradients -->
+    <linearGradient id="nameGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#38bdf8"/>
+      <stop offset="50%" stop-color="#818cf8"/>
+      <stop offset="100%" stop-color="#c084fc"/>
+    </linearGradient>
+
+    <linearGradient id="badgeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e293b"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+
+    <linearGradient id="borderGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.6"/>
+      <stop offset="50%" stop-color="#818cf8" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#c084fc" stop-opacity="0.5"/>
+    </linearGradient>
+  </defs>
+
+  <style>
+    .mono { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; }
+    .sans { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+    .title { font-weight: 800; font-size: 36px; letter-spacing: -0.5px; }
+    .subtitle { font-weight: 600; font-size: 16px; fill: #94a3b8; letter-spacing: 0.5px; }
+    .quote { font-weight: 400; font-size: 13.5px; fill: #cbd5e1; font-style: italic; }
+    .pill-text { font-weight: 600; font-size: 11.5px; fill: #e2e8f0; }
+    .status-text { font-weight: 500; font-size: 12px; fill: #34d399; }
+    .status-dot { fill: #10b981; }
+  </style>
+
+  <!-- Container Box with Rounded Corners -->
+  <rect x="1.5" y="1.5" width="847" height="257" rx="16" fill="url(#bgGrad)" stroke="url(#borderGrad)" stroke-width="1.5"/>
+
+  <!-- Glow Elements -->
+  <rect x="1.5" y="1.5" width="847" height="257" rx="16" fill="url(#glowTopRight)"/>
+  <rect x="1.5" y="1.5" width="847" height="257" rx="16" fill="url(#glowBottomLeft)"/>
+
+  <!-- Subtle Grid Pattern for High-Tech Vibe -->
+  <g opacity="0.07" stroke="#94a3b8" stroke-width="0.8">
+    <line x1="60" y1="0" x2="60" y2="260"/>
+    <line x1="160" y1="0" x2="160" y2="260"/>
+    <line x1="260" y1="0" x2="260" y2="260"/>
+    <line x1="360" y1="0" x2="360" y2="260"/>
+    <line x1="460" y1="0" x2="460" y2="260"/>
+    <line x1="560" y1="0" x2="560" y2="260"/>
+    <line x1="660" y1="0" x2="660" y2="260"/>
+    <line x1="760" y1="0" x2="760" y2="260"/>
+    <line x1="0" y1="50" x2="850" y2="50"/>
+    <line x1="0" y1="110" x2="850" y2="110"/>
+    <line x1="0" y1="170" x2="850" y2="170"/>
+    <line x1="0" y1="230" x2="850" y2="230"/>
+  </g>
+
+  <!-- Top Bar Terminal Dots -->
+  <g transform="translate(32, 28)">
+    <circle cx="0" cy="0" r="5" fill="#ef4444" opacity="0.85"/>
+    <circle cx="16" cy="0" r="5" fill="#f59e0b" opacity="0.85"/>
+    <circle cx="32" cy="0" r="5" fill="#10b981" opacity="0.85"/>
+    <text x="48" y="4" class="mono" font-size="11" fill="#64748b">~/portfolio/palla-venkateswarlu</text>
+  </g>
+
+  <!-- Status indicator badge (Top Right) -->
+  <g transform="translate(620, 20)">
+    <rect x="0" y="0" width="195" height="26" rx="13" fill="#064e3b" fill-opacity="0.4" stroke="#059669" stroke-width="1"/>
+    <circle cx="14" cy="13" r="4" class="status-dot"/>
+    <text x="26" y="17" class="sans status-text">Open to Conversations</text>
+  </g>
+
+  <!-- Main Name Header -->
+  <text x="32" y="96" class="sans title" fill="url(#nameGrad)">PALLA VENKATESWARLU</text>
+
+  <!-- Professional Subtitle -->
+  <g transform="translate(32, 126)">
+    <text x="0" y="0" class="sans subtitle">
+      <tspan fill="#38bdf8" font-weight="700">Senior Java Full Stack Developer</tspan>
+      <tspan fill="#64748b">  |  </tspan>
+      <tspan fill="#e2e8f0">4+ Years</tspan>
+      <tspan fill="#94a3b8"> Enterprise Production Delivery</tspan>
+    </text>
+  </g>
+
+  <!-- Punchy Quote / Value Proposition -->
+  <text x="32" y="160" class="sans quote">
+    "Building scalable Java microservices, high-performance React frontends, and reliable cloud-native delivery."
+  </text>
+
+  <!-- High-Impact Skill Badges / Highlights -->
+  <!-- Pill 1: Java & Spring Boot -->
+  <g transform="translate(32, 188)">
+    <rect x="0" y="0" width="162" height="34" rx="8" fill="url(#badgeGrad)" stroke="#334155" stroke-width="1"/>
+    <path d="M16 23h12a2 2 0 0 0 2-2v-4a2 2 0 0 0-2-2h-12a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2zm12-6h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1h-2v-4z" fill="#f59e0b" fill-opacity="0.9"/>
+    <text x="36" y="21" class="sans pill-text">Java 17/21 · Spring</text>
+  </g>
+
+  <!-- Pill 2: React & Next.js -->
+  <g transform="translate(204, 188)">
+    <rect x="0" y="0" width="168" height="34" rx="8" fill="url(#badgeGrad)" stroke="#334155" stroke-width="1"/>
+    <ellipse cx="22" cy="17" rx="8" ry="3" fill="none" stroke="#38bdf8" stroke-width="1.2" transform="rotate(30 22 17)"/>
+    <ellipse cx="22" cy="17" rx="8" ry="3" fill="none" stroke="#38bdf8" stroke-width="1.2" transform="rotate(-30 22 17)"/>
+    <circle cx="22" cy="17" r="1.5" fill="#38bdf8"/>
+    <text x="36" y="21" class="sans pill-text">React.js · Next.js</text>
+  </g>
+
+  <!-- Pill 3: AWS & Microservices -->
+  <g transform="translate(382, 188)">
+    <rect x="0" y="0" width="176" height="34" rx="8" fill="url(#badgeGrad)" stroke="#334155" stroke-width="1"/>
+    <path d="M22 22a4 4 0 0 0 4-4 3.5 3.5 0 0 0-3.3-3.5 4.5 4.5 0 0 0-8.4 1A3.5 3.5 0 0 0 15 22h7z" fill="#f97316" fill-opacity="0.9"/>
+    <text x="36" y="21" class="sans pill-text">AWS · Kafka · Docker</text>
+  </g>
+
+  <!-- Pill 4: Enterprise Clients -->
+  <g transform="translate(568, 188)">
+    <rect x="0" y="0" width="248" height="34" rx="8" fill="url(#badgeGrad)" stroke="#334155" stroke-width="1"/>
+    <path d="M16 23V11h8v12h-8zm2-10h4v2h-4v-2zm0 4h4v2h-4v-2z" fill="#a855f7" fill-opacity="0.9"/>
+    <text x="32" y="21" class="sans pill-text">Verizon · Northwestern Mutual</text>
+  </g>
+
+</svg>

@@ -1,0 +1,163 @@
+<svg width="850" height="340" viewBox="0 0 850 340" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Background Gradient -->
+    <linearGradient id="archBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0b0f19"/>
+      <stop offset="50%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#111827"/>
+    </linearGradient>
+
+    <!-- Service Card Gradient -->
+    <linearGradient id="cardGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e293b"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+
+    <linearGradient id="kafkaGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#1e1b4b"/>
+      <stop offset="50%" stop-color="#311042"/>
+      <stop offset="100%" stop-color="#1e1b4b"/>
+    </linearGradient>
+
+    <!-- Glows -->
+    <radialGradient id="archGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#38bdf8" stop-opacity="0"/>
+    </radialGradient>
+
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="115%" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#000000" flood-opacity="0.4"/>
+    </filter>
+  </defs>
+
+  <style>
+    .font-mono { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; }
+    .font-sans { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+    .title-text { font-size: 13px; font-weight: 700; fill: #f8fafc; }
+    .sub-text { font-size: 10px; font-weight: 500; fill: #94a3b8; }
+    .badge-text { font-size: 9px; font-weight: 600; fill: #38bdf8; }
+    .wire-label { font-size: 10px; font-weight: 600; font-family: ui-monospace, monospace; }
+  </style>
+
+  <!-- Container -->
+  <rect x="1.5" y="1.5" width="847" height="337" rx="14" fill="url(#archBg)" stroke="#334155" stroke-width="1.5"/>
+  <rect x="1.5" y="1.5" width="847" height="337" rx="14" fill="url(#archGlow)"/>
+
+  <!-- Header / Caption -->
+  <g transform="translate(28, 26)">
+    <text class="font-sans" font-size="14" font-weight="700" fill="#e2e8f0">Enterprise Microservices Architecture</text>
+    <text x="270" class="font-sans" font-size="12" font-weight="500" fill="#64748b">|</text>
+    <text x="285" class="font-sans" font-size="12" font-weight="500" fill="#38bdf8">Patient Management System (Java 21 · Spring Boot · gRPC · Kafka)</text>
+  </g>
+
+  <!-- AWS Cloud Perimeter Box -->
+  <rect x="24" y="52" width="802" height="268" rx="10" fill="#0b1329" fill-opacity="0.5" stroke="#1e3a8a" stroke-width="1" stroke-dasharray="4 4"/>
+  <text x="40" y="72" class="font-mono" font-size="10" font-weight="600" fill="#60a5fa">AWS VPC (CDK / LocalStack) · ECS Fargate Cluster</text>
+
+  <!-- Gateway / ALB Card (Left) -->
+  <g transform="translate(44, 95)" filter="url(#shadow)">
+    <rect width="115" height="180" rx="8" fill="url(#cardGrad)" stroke="#3b82f6" stroke-width="1.2"/>
+    <circle cx="57" cy="36" r="16" fill="#1e3a8a" fill-opacity="0.8"/>
+    <!-- Router/ALB icon hint -->
+    <path d="M57 26v20M47 36h20M49 29l16 14M49 43l16-14" stroke="#60a5fa" stroke-width="2" stroke-linecap="round"/>
+    <text x="57" y="72" text-anchor="middle" class="font-sans title-text">AWS ALB</text>
+    <text x="57" y="88" text-anchor="middle" class="font-sans sub-text">API Gateway</text>
+    <rect x="18" y="104" width="79" height="18" rx="4" fill="#0f172a" stroke="#1e293b"/>
+    <text x="57" y="116" text-anchor="middle" class="font-mono badge-text">JWT Auth</text>
+    <rect x="18" y="128" width="79" height="18" rx="4" fill="#0f172a" stroke="#1e293b"/>
+    <text x="57" y="140" text-anchor="middle" class="font-mono badge-text">Rate Limiter</text>
+    <rect x="18" y="152" width="79" height="18" rx="4" fill="#0f172a" stroke="#1e293b"/>
+    <text x="57" y="164" text-anchor="middle" class="font-mono badge-text">HTTPS / SSL</text>
+  </g>
+
+  <!-- Services Column (Center) -->
+  <!-- Service 1: Patient Service -->
+  <g transform="translate(210, 85)" filter="url(#shadow)">
+    <rect width="165" height="66" rx="8" fill="url(#cardGrad)" stroke="#10b981" stroke-width="1.2"/>
+    <text x="14" y="24" class="font-sans title-text">Patient Service</text>
+    <text x="14" y="40" class="font-sans sub-text">Java 21 · Spring Boot 3</text>
+    <rect x="14" y="47" width="60" height="13" rx="3" fill="#064e3b"/>
+    <text x="44" y="56" text-anchor="middle" class="font-mono" font-size="8.5" font-weight="700" fill="#34d399">REST / CRUD</text>
+    <rect x="78" y="47" width="74" height="13" rx="3" fill="#0f172a" stroke="#334155"/>
+    <text x="115" y="56" text-anchor="middle" class="font-mono" font-size="8.5" fill="#94a3b8">PostgreSQL</text>
+  </g>
+
+  <!-- Service 2: Billing Service -->
+  <g transform="translate(440, 85)" filter="url(#shadow)">
+    <rect width="165" height="66" rx="8" fill="url(#cardGrad)" stroke="#6366f1" stroke-width="1.2"/>
+    <text x="14" y="24" class="font-sans title-text">Billing Service</text>
+    <text x="14" y="40" class="font-sans sub-text">Java 21 · Spring Boot 3</text>
+    <rect x="14" y="47" width="55" height="13" rx="3" fill="#312e81"/>
+    <text x="41" y="56" text-anchor="middle" class="font-mono" font-size="8.5" font-weight="700" fill="#a5b4fc">gRPC Client</text>
+    <rect x="73" y="47" width="78" height="13" rx="3" fill="#0f172a" stroke="#334155"/>
+    <text x="112" y="56" text-anchor="middle" class="font-mono" font-size="8.5" fill="#94a3b8">Invoicing Engine</text>
+  </g>
+
+  <!-- Synchronous gRPC arrow between Patient and Billing -->
+  <g transform="translate(378, 108)">
+    <line x1="0" y1="9" x2="58" y2="9" stroke="#38bdf8" stroke-width="2" stroke-dasharray="3 3"/>
+    <polygon points="58,9 50,5 50,13" fill="#38bdf8"/>
+    <polygon points="0,9 8,5 8,13" fill="#38bdf8"/>
+    <text x="29" y="0" text-anchor="middle" class="wire-label" fill="#38bdf8">gRPC Sync</text>
+  </g>
+
+  <!-- Service 3: Auth Service -->
+  <g transform="translate(210, 210)" filter="url(#shadow)">
+    <rect width="165" height="66" rx="8" fill="url(#cardGrad)" stroke="#f59e0b" stroke-width="1.2"/>
+    <text x="14" y="24" class="font-sans title-text">Auth Service</text>
+    <text x="14" y="40" class="font-sans sub-text">OAuth2 · Spring Security</text>
+    <rect x="14" y="47" width="68" height="13" rx="3" fill="#451a03"/>
+    <text x="48" y="56" text-anchor="middle" class="font-mono" font-size="8.5" font-weight="700" fill="#fbbf24">JWT Tokens</text>
+    <rect x="86" y="47" width="66" height="13" rx="3" fill="#0f172a" stroke="#334155"/>
+    <text x="119" y="56" text-anchor="middle" class="font-mono" font-size="8.5" fill="#94a3b8">Redis Cache</text>
+  </g>
+
+  <!-- Service 4: Analytics Service -->
+  <g transform="translate(440, 210)" filter="url(#shadow)">
+    <rect width="165" height="66" rx="8" fill="url(#cardGrad)" stroke="#ec4899" stroke-width="1.2"/>
+    <text x="14" y="24" class="font-sans title-text">Analytics Service</text>
+    <text x="14" y="40" class="font-sans sub-text">Java 21 · Stream Consumer</text>
+    <rect x="14" y="47" width="70" height="13" rx="3" fill="#500724"/>
+    <text x="49" y="56" text-anchor="middle" class="font-mono" font-size="8.5" font-weight="700" fill="#f472b6">Kafka Listener</text>
+    <rect x="88" y="47" width="64" height="13" rx="3" fill="#0f172a" stroke="#334155"/>
+    <text x="120" y="56" text-anchor="middle" class="font-mono" font-size="8.5" fill="#94a3b8">Aggregation</text>
+  </g>
+
+  <!-- Central Apache Kafka Event Bus (Right Column) -->
+  <g transform="translate(660, 85)" filter="url(#shadow)">
+    <rect width="144" height="191" rx="8" fill="url(#kafkaGrad)" stroke="#ec4899" stroke-width="1.4"/>
+    <circle cx="72" cy="34" r="14" fill="#831843" fill-opacity="0.8"/>
+    <!-- Kafka icon symbol -->
+    <circle cx="72" cy="34" r="4" fill="#f472b6"/>
+    <circle cx="64" cy="40" r="3" fill="#f472b6"/>
+    <circle cx="80" cy="40" r="3" fill="#f472b6"/>
+    <circle cx="72" cy="26" r="3" fill="#f472b6"/>
+    <text x="72" y="66" text-anchor="middle" class="font-sans title-text" fill="#fbcfe8">Amazon MSK</text>
+    <text x="72" y="80" text-anchor="middle" class="font-mono" font-size="9.5" fill="#f472b6">Apache Kafka Bus</text>
+
+    <!-- Topics -->
+    <rect x="12" y="96" width="120" height="20" rx="4" fill="#18181b" stroke="#3f3f46"/>
+    <text x="72" y="110" text-anchor="middle" class="font-mono badge-text" fill="#f472b6">topic: patient-events</text>
+
+    <rect x="12" y="124" width="120" height="20" rx="4" fill="#18181b" stroke="#3f3f46"/>
+    <text x="72" y="138" text-anchor="middle" class="font-mono badge-text" fill="#f472b6">topic: billing-records</text>
+
+    <rect x="12" y="152" width="120" height="20" rx="4" fill="#18181b" stroke="#3f3f46"/>
+    <text x="72" y="166" text-anchor="middle" class="font-mono badge-text" fill="#f472b6">topic: audit-metrics</text>
+  </g>
+
+  <!-- Connectors from ALB to Services -->
+  <path d="M159 130 C 180 130, 185 118, 210 118" stroke="#38bdf8" stroke-width="1.6" fill="none"/>
+  <polygon points="210,118 202,114 202,122" fill="#38bdf8"/>
+
+  <path d="M159 185 C 180 185, 185 243, 210 243" stroke="#38bdf8" stroke-width="1.6" fill="none"/>
+  <polygon points="210,243 202,239 202,247" fill="#38bdf8"/>
+
+  <!-- Connectors from Services to Kafka Bus -->
+  <path d="M605 118 L 660 118" stroke="#f472b6" stroke-width="1.6" fill="none"/>
+  <polygon points="660,118 652,114 652,122" fill="#f472b6"/>
+
+  <path d="M605 243 L 660 243" stroke="#f472b6" stroke-width="1.6" fill="none"/>
+  <polygon points="605,243 613,239 613,247" fill="#f472b6"/>
+
+</svg>
