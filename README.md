@@ -56,7 +56,132 @@
 
 ### 🏛️ Flagship Architecture & Projects
 
-#### 🏥 Patient Management Microservices System
+#### 1. 🛒 E-Commerce Cloud Platform
+**Enterprise Event-Driven Microservices Architecture**  
+*Java 17 · Spring Boot 3 · Apache Kafka · Kafka Streams · Spring Cloud · Kubernetes · Docker*
+
+<div align="center">
+
+<br/>
+
+[![Java](https://img.shields.io/badge/Java-17-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white)](https://www.oracle.com/java/)
+[![Spring Boot](https://img.shields.io/badge/Spring_Boot-3.x-6DB33F?style=for-the-badge&logo=springboot&logoColor=white)](https://spring.io/projects/spring-boot)
+[![Spring Cloud](https://img.shields.io/badge/Spring_Cloud-Eureka_%7C_Gateway_%7C_Feign-6DB33F?style=for-the-badge&logo=spring&logoColor=white)](https://spring.io/projects/spring-cloud)
+[![Apache Kafka](https://img.shields.io/badge/Apache_Kafka-Event_Streaming-231F20?style=for-the-badge&logo=apachekafka&logoColor=white)](https://kafka.apache.org/)
+[![Kubernetes](https://img.shields.io/badge/Kubernetes-K8s_Orchestration-326CE5?style=for-the-badge&logo=kubernetes&logoColor=white)](https://kubernetes.io/)
+[![Docker](https://img.shields.io/badge/Docker-Containerized-2496ED?style=for-the-badge&logo=docker&logoColor=white)](https://www.docker.com/)
+[![Repository](https://img.shields.io/badge/GitHub-Ecom__Spring__Project-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/palla023/Ecom_Spring_Project)
+
+<br/>
+
+| ☕ Core Stack | 🔄 Event Streaming | 🌐 Service Mesh & Gateway | 💾 Data & Caching | 📊 Telemetry & Observability |
+| :---: | :---: | :---: | :---: | :---: |
+| **Java 17**<br/><sub>Spring Boot 3.x</sub> | **Apache Kafka**<br/><sub>Kafka Streams Join</sub> | **Spring Cloud**<br/><sub>Gateway · Eureka · Feign</sub> | **MySQL & Redis**<br/><sub>Database-Per-Service</sub> | **Prometheus · Grafana**<br/><sub>Zipkin Tracing · ELK Stack</sub> |
+
+</div>
+
+##### 🏛️ System Architecture
+
+A distributed, resilient e-commerce ecosystem architected with **decoupled microservices**, **synchronous OpenFeign RPCs** for low-latency queries, **asynchronous event choreographies** via **Apache Kafka**, stateful stream processing with **Kafka Streams**, and end-to-end container orchestration on **Kubernetes (K8s)**.
+
+<div align="center">
+  <img src="./assets/ecom-architecture-diagram.svg" width="100%" alt="E-Commerce Microservices Architecture" />
+</div>
+
+<br/>
+
+##### ⚙️ Microservices Ecosystem Matrix
+
+| Microservice | Port | Core Role & Responsibilities | Inter-Service Protocol | Data Store & Cache |
+| :--- | :---: | :--- | :--- | :--- |
+| **`user-service`** | `8055` | **Step 1:** User identity, registration, password hashing (BCrypt), customer validation | REST / OpenFeign Target | MySQL (`user_db`) |
+| **`product-service`** | `8051` | **Step 2:** Product catalog CRUD, stock management, high-throughput cached inventory reads | REST / OpenFeign Target | MySQL + Redis Cache |
+| **`cart-service`** | `8054` | **Step 3:** Shopping cart sessions, active item mutations, automated cart clearing on checkout | REST / OpenFeign Target | MySQL (`cart_db`) |
+| **`order-service`** | `8052` | **Step 4:** Order placement, checkout coordination, Feign orchestrator, event publication | OpenFeign Client + Kafka Producer | MySQL (`order_db`) |
+| **`payment-service`** | `8053` | **Step 5:** Payment capture & verification, transaction ledger, payment lifecycle events | Kafka Listener + Kafka Producer | MySQL (`payment_db`) |
+| **`apigateway-service`** | `8058` | Single ingress point, JWT authentication filtering, dynamic path routing, rate limiting | Spring Cloud Gateway | In-memory / Actuator |
+| **`eureka-server`** | `8761` | Central service discovery registry, client heartbeat health-checks, dynamic load balancing | Netflix Eureka | Dynamic Registry |
+| **`shipping-service`** | `8056` | Fulfillment dispatch, courier carrier assignments, package tracking updates | REST API | MySQL (`shipping_db`) |
+| **`favourite-service`** | `8057` | User wishlist management, product bookmarking, customer preferences | REST API | MySQL (`favourite_db`) |
+| **`kafka-analytics-service-streams`** | `—` | Stateful stream processing joining `order-events` and `payment-events` in real time | Kafka Streams (`StreamsBuilder`) | KStream State Store |
+| **`audit-service`** | `8059` | Immutable event audit trail, regulatory compliance logging across all microservices | Kafka Consumer (`audit-topic`) | Audit Log Store |
+
+<br/>
+
+##### 🔄 Real-Time Event-Driven Streaming & Analytics
+
+The platform decouples business workflows using an **Event-Driven Architecture (EDA)** with **Apache Kafka** and performs stream processing with **Kafka Streams**:
+
+```
+[Client] ──POST /order──► [API Gateway] ──► [Order Service]
+                                                   │
+                ┌──────────────────────────────────┴──────────────────────────────────┐
+                ▼                                                                     ▼
+     [OpenFeign Sync Calls]                                                [Kafka Producer: 'order-events']
+  ├── UserFeignClient (Validate User)                                                 │
+  ├── ProductFeignClient (Check Stock & Price)                                        ▼
+  └── CartFeignClient (Clear Cart on Success)                             ┌───────────────────────┐
+                                                                          │  Apache Kafka Cluster │
+                                                                          │  • order-events       │
+                                                                          │  • payment-events     │
+                                                                          │  • order-summary      │
+                                                                          │  • audit-topic        │
+                                                                          └──────────┬────────────┘
+                                                                                     │
+                       ┌─────────────────────────────────────────────────────────────┴────────────────────────┐
+                       ▼                                                                                      ▼
+            [Payment Service]                                                         [Kafka Analytics Streams]
+       • Listens to 'order-events'                                               • Consumes 'order-events' & 'payment-events'
+       • Executes transaction engine                                             • Performs 5-minute sliding window join
+       • Publishes 'payment-events' ──────────────────────────┐                  • Emits unified 'order-payment-summary-topic'
+                                                              │                                       │
+                                                              ▼                                       ▼
+                                                    [Apache Kafka Bus]                [Order Payment Summary Consumer]
+                                                                                      • Real-time revenue & order dashboards
+```
+
+###### 🧠 Real-Time Kafka Streams Join (`SalesAnalyticsStream.java`)
+```java
+// Consumes order and payment streams, joining them within a 5-minute sliding window
+KStream<String, OrderPaymentSummary> joinedStream = orderStream.join(
+    paymentStream,
+    (order, payment) -> new OrderPaymentSummary(
+        order.getOrderId(),
+        order.getUserId(),
+        order.getAmount(),
+        payment.getStatus(),
+        payment.getPaymentId()
+    ),
+    JoinWindows.ofTimeDifferenceWithNoGrace(Duration.ofMinutes(5)),
+    StreamJoined.with(Serdes.String(), orderSerde, paymentSerde)
+);
+
+// Publishes joined analytical summary to downstream analytics topic
+joinedStream.to("order-payment-summary-topic");
+```
+
+<br/>
+
+##### ☸️ Kubernetes (K8s) & Cloud Native Deployments
+
+The entire distributed platform is orchestrated with production-ready Kubernetes manifests:
+
+- **Isolated Database Per Service**: Dedicated MySQL `Deployments` and ClusterIP `Services` ensuring zero cross-database coupling.
+- **Service Discovery & Edge Routing**: Kubernetes LoadBalancer Service fronting `api-gateway` with internal routing to `eureka-server`.
+- **Distributed Tracing**: Zipkin pod collecting distributed trace spans (`traceId`, `spanId`) propagated across REST and Kafka hops.
+- **Metrics Telemetry**: Spring Boot Actuator scraping metrics via Prometheus ConfigMaps and visualized through Grafana dashboards.
+- **Centralized Logging (ELK)**: Fluentd DaemonSet forwarding structured JSON container logs to Elasticsearch and Kibana.
+
+```bash
+# Deploy complete cluster infrastructure to Kubernetes
+kubectl apply -f deployment/microservices_deployments/
+kubectl apply -f deployment/monitoring/
+kubectl apply -f deployment/elk-setup/
+```
+
+---
+
+#### 2. 🏥 Patient Management Microservices System
 *Distributed System · Java 21 · Spring Boot 3 · gRPC · Kafka · AWS CDK · LocalStack*
 
 <div align="center">
@@ -81,7 +206,8 @@
 
 | Project | Stack | Highlights | Demo Link |
 | :--- | :--- | :--- | :---: |
-| 🛒 **Eshop Multi-Role E-Commerce** | `Next.js` `TypeScript` `RBAC` | Multi-role portals, protected routes, cart & orders | [**Live Demo ↗**](https://eshop-ai-seven.vercel.app/) |
+| 🛒 **E-Commerce Cloud Platform** | `Java 17` `Spring Boot` `Kafka` `K8s` | 11 microservices, Kafka Streams join, OpenFeign, K8s | [**Source Code ↗**](https://github.com/palla023/Ecom_Spring_Project) |
+| 🛍️ **Eshop Multi-Role Storefront** | `Next.js` `TypeScript` `RBAC` | Multi-role portals, protected routes, cart & orders | [**Live Demo ↗**](https://eshop-ai-seven.vercel.app/) |
 | 📚 **Library Management System** | `React` `Node` `MongoDB` | Role-based portal for Admins, Librarians & Users | [**Live Demo ↗**](https://lm-mern.onrender.com/) |
 | 👨‍💻 **Developers Hub** | `MERN` `Redux` `REST` | Full developer network with social profiles & posts | [**Live Demo ↗**](https://developershub-mern.onrender.com/) |
 | 💬 **Real-Time Social App** | `React` `Socket.io` `Node` | Instant messaging, live presence & social feeds | [**Live Demo ↗**](https://mern-social-client-8zyd.onrender.com/) |

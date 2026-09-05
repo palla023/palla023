@@ -1,0 +1,285 @@
+<svg width="1020" height="380" viewBox="0 0 1020 380" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Background Gradient -->
+    <linearGradient id="archBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0b0f19"/>
+      <stop offset="50%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#111827"/>
+    </linearGradient>
+
+    <!-- Service Card Gradient -->
+    <linearGradient id="cardGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e293b"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+
+    <!-- Kafka Bus Gradient -->
+    <linearGradient id="kafkaGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#1e1b4b"/>
+      <stop offset="50%" stop-color="#311042"/>
+      <stop offset="100%" stop-color="#1e1b4b"/>
+    </linearGradient>
+
+    <!-- Glows -->
+    <radialGradient id="archGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#38bdf8" stop-opacity="0"/>
+    </radialGradient>
+
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="115%" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#000000" flood-opacity="0.4"/>
+    </filter>
+  </defs>
+
+  <style>
+    .font-mono { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; }
+    .font-sans { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+    .title-text { font-size: 12.5px; font-weight: 700; fill: #f8fafc; }
+    .sub-text { font-size: 9.5px; font-weight: 500; fill: #94a3b8; }
+    .badge-text { font-size: 8.5px; font-weight: 600; fill: #38bdf8; }
+    .topic-text { font-size: 8.5px; font-weight: 600; fill: #f472b6; }
+    .wire-label { font-size: 7.5px; font-weight: 700; font-family: ui-monospace, monospace; }
+  </style>
+
+  <!-- Container Box -->
+  <rect x="1.5" y="1.5" width="1017" height="377" rx="14" fill="url(#archBg)" stroke="#334155" stroke-width="1.5"/>
+  <rect x="1.5" y="1.5" width="1017" height="377" rx="14" fill="url(#archGlow)"/>
+
+  <!-- Header Caption -->
+  <g transform="translate(28, 25)">
+    <text class="font-sans" font-size="14" font-weight="700" fill="#e2e8f0">Enterprise Microservices Architecture</text>
+    <text x="270" class="font-sans" font-size="12" font-weight="500" fill="#64748b">|</text>
+    <text x="285" class="font-sans" font-size="12" font-weight="500" fill="#38bdf8">E-Commerce Cloud Platform (Java 17 · Spring Boot 3 · Kafka Streams · K8s)</text>
+  </g>
+
+  <!-- Cloud Kubernetes Perimeter Box -->
+  <rect x="18" y="44" width="984" height="320" rx="10" fill="#0b1329" fill-opacity="0.5" stroke="#1e3a8a" stroke-width="1" stroke-dasharray="4 4"/>
+  <text x="34" y="61" class="font-mono" font-size="9.5" font-weight="600" fill="#60a5fa">Kubernetes Cluster (K8s) · Eureka Service Registry · Prometheus &amp; Grafana Observability</text>
+
+  <!-- 1. Gateway Card Left -->
+  <g transform="translate(32, 76)" filter="url(#shadow)">
+    <rect width="112" height="214" rx="8" fill="url(#cardGrad)" stroke="#3b82f6" stroke-width="1.2"/>
+    <circle cx="56" cy="34" r="15" fill="#1e3a8a" fill-opacity="0.8"/>
+    <!-- Router Icon -->
+    <path d="M56 24v20M46 34h20M48 27l16 14M48 41l16-14" stroke="#60a5fa" stroke-width="2" stroke-linecap="round"/>
+    <text x="56" y="68" text-anchor="middle" class="font-sans title-text">API Gateway</text>
+    <text x="56" y="82" text-anchor="middle" class="font-sans sub-text">Spring Cloud · 8058</text>
+    
+    <rect x="12" y="98" width="88" height="17" rx="4" fill="#0f172a" stroke="#1e293b"/>
+    <text x="56" y="110" text-anchor="middle" class="font-mono badge-text">JWT Auth Filter</text>
+
+    <rect x="12" y="122" width="88" height="17" rx="4" fill="#0f172a" stroke="#1e293b"/>
+    <text x="56" y="134" text-anchor="middle" class="font-mono badge-text">Dynamic Routing</text>
+
+    <rect x="12" y="146" width="88" height="17" rx="4" fill="#0f172a" stroke="#1e293b"/>
+    <text x="56" y="158" text-anchor="middle" class="font-mono badge-text">Rate Limiter</text>
+
+    <rect x="12" y="170" width="88" height="17" rx="4" fill="#0f172a" stroke="#1e293b"/>
+    <text x="56" y="182" text-anchor="middle" class="font-mono badge-text">Eureka Client</text>
+  </g>
+
+  <!-- 2. Core Microservices: User -> Product -> Cart -> Order -> Payment -->
+
+  <!-- Step 1: User Service -->
+  <g transform="translate(174, 76)" filter="url(#shadow)">
+    <rect width="186" height="70" rx="8" fill="url(#cardGrad)" stroke="#06b6d4" stroke-width="1.2"/>
+    <text x="14" y="23" class="font-sans title-text">1. User Service</text>
+    <text x="14" y="39" class="font-sans sub-text">Auth &amp; Customer Profile · 8055</text>
+    <rect x="14" y="47" width="80" height="14" rx="3" fill="#083344"/>
+    <text x="54" y="57.5" text-anchor="middle" class="font-mono" font-size="8.5" font-weight="700" fill="#22d3ee">JWT / BCrypt</text>
+    <rect x="98" y="47" width="62" height="14" rx="3" fill="#0f172a" stroke="#334155"/>
+    <text x="129" y="57.5" text-anchor="middle" class="font-mono" font-size="8.5" fill="#94a3b8">MySQL DB</text>
+  </g>
+
+  <!-- Step 2: Product Service -->
+  <g transform="translate(396, 76)" filter="url(#shadow)">
+    <rect width="186" height="70" rx="8" fill="url(#cardGrad)" stroke="#10b981" stroke-width="1.2"/>
+    <text x="14" y="23" class="font-sans title-text">2. Product Service</text>
+    <text x="14" y="39" class="font-sans sub-text">Catalog &amp; Inventory Engine · 8051</text>
+    <rect x="14" y="47" width="76" height="14" rx="3" fill="#064e3b"/>
+    <text x="52" y="57.5" text-anchor="middle" class="font-mono" font-size="8.5" font-weight="700" fill="#34d399">Redis Cache</text>
+    <rect x="94" y="47" width="62" height="14" rx="3" fill="#0f172a" stroke="#334155"/>
+    <text x="125" y="57.5" text-anchor="middle" class="font-mono" font-size="8.5" fill="#94a3b8">MySQL DB</text>
+  </g>
+
+  <!-- Step 3: Cart Service -->
+  <g transform="translate(618, 76)" filter="url(#shadow)">
+    <rect width="186" height="70" rx="8" fill="url(#cardGrad)" stroke="#f59e0b" stroke-width="1.2"/>
+    <text x="14" y="23" class="font-sans title-text">3. Cart Service</text>
+    <text x="14" y="39" class="font-sans sub-text">Shopping Session State · 8054</text>
+    <rect x="14" y="47" width="76" height="14" rx="3" fill="#451a03"/>
+    <text x="52" y="57.5" text-anchor="middle" class="font-mono" font-size="8.5" font-weight="700" fill="#fbbf24">Cart Sessions</text>
+    <rect x="94" y="47" width="62" height="14" rx="3" fill="#0f172a" stroke="#334155"/>
+    <text x="125" y="57.5" text-anchor="middle" class="font-mono" font-size="8.5" fill="#94a3b8">MySQL DB</text>
+  </g>
+
+  <!-- Kafka Streams Bottom-Left -->
+  <g transform="translate(174, 220)" filter="url(#shadow)">
+    <rect width="186" height="70" rx="8" fill="url(#cardGrad)" stroke="#ec4899" stroke-width="1.2"/>
+    <text x="14" y="23" class="font-sans title-text">Kafka Streams</text>
+    <text x="14" y="39" class="font-sans sub-text">Real-Time Stream Engine</text>
+    <rect x="14" y="47" width="84" height="14" rx="3" fill="#500724"/>
+    <text x="56" y="57.5" text-anchor="middle" class="font-mono" font-size="8.5" font-weight="700" fill="#f472b6">KStream 5m Join</text>
+    <rect x="102" y="47" width="58" height="14" rx="3" fill="#0f172a" stroke="#334155"/>
+    <text x="131" y="57.5" text-anchor="middle" class="font-mono" font-size="8.5" fill="#94a3b8">Summary DB</text>
+  </g>
+
+  <!-- Step 4: Order Service Bottom-Center Orchestrator -->
+  <g transform="translate(396, 220)" filter="url(#shadow)">
+    <rect width="186" height="70" rx="8" fill="url(#cardGrad)" stroke="#38bdf8" stroke-width="1.4"/>
+    <text x="14" y="23" class="font-sans title-text">4. Order Service</text>
+    <text x="14" y="39" class="font-sans sub-text">Checkout &amp; Feign Orchestrator · 8052</text>
+    <rect x="14" y="47" width="86" height="14" rx="3" fill="#0c4a6e"/>
+    <text x="57" y="57.5" text-anchor="middle" class="font-mono" font-size="8.5" font-weight="700" fill="#38bdf8">OpenFeign Client</text>
+    <rect x="104" y="47" width="58" height="14" rx="3" fill="#0f172a" stroke="#334155"/>
+    <text x="133" y="57.5" text-anchor="middle" class="font-mono" font-size="8.5" fill="#94a3b8">MySQL DB</text>
+  </g>
+
+  <!-- Step 5: Payment Service Bottom-Right Transaction Engine -->
+  <g transform="translate(618, 220)" filter="url(#shadow)">
+    <rect width="186" height="70" rx="8" fill="url(#cardGrad)" stroke="#6366f1" stroke-width="1.2"/>
+    <text x="14" y="23" class="font-sans title-text">5. Payment Service</text>
+    <text x="14" y="39" class="font-sans sub-text">Transaction Processing · 8053</text>
+    <rect x="14" y="47" width="84" height="14" rx="3" fill="#312e81"/>
+    <text x="56" y="57.5" text-anchor="middle" class="font-mono" font-size="8.5" font-weight="700" fill="#a5b4fc">Kafka Consumer</text>
+    <rect x="102" y="47" width="58" height="14" rx="3" fill="#0f172a" stroke="#334155"/>
+    <text x="131" y="57.5" text-anchor="middle" class="font-mono" font-size="8.5" fill="#94a3b8">MySQL DB</text>
+  </g>
+
+  <!-- 3. Central Event Bus: Apache Kafka Right Column -->
+  <g transform="translate(840, 76)" filter="url(#shadow)">
+    <rect width="150" height="214" rx="8" fill="url(#kafkaGrad)" stroke="#ec4899" stroke-width="1.4"/>
+    <circle cx="75" cy="34" r="14" fill="#831843" fill-opacity="0.8"/>
+    <!-- Kafka Symbol -->
+    <circle cx="75" cy="34" r="4" fill="#f472b6"/>
+    <circle cx="67" cy="40" r="3" fill="#f472b6"/>
+    <circle cx="83" cy="40" r="3" fill="#f472b6"/>
+    <circle cx="75" cy="26" r="3" fill="#f472b6"/>
+    <text x="75" y="65" text-anchor="middle" class="font-sans title-text" fill="#fbcfe8">Apache Kafka</text>
+    <text x="75" y="79" text-anchor="middle" class="font-mono" font-size="8.5" fill="#f472b6">Distributed Event Bus</text>
+
+    <!-- Topics -->
+    <rect x="10" y="94" width="130" height="20" rx="4" fill="#18181b" stroke="#3f3f46"/>
+    <text x="75" y="107.5" text-anchor="middle" class="font-mono topic-text">topic: order-events</text>
+
+    <rect x="10" y="120" width="130" height="20" rx="4" fill="#18181b" stroke="#3f3f46"/>
+    <text x="75" y="133.5" text-anchor="middle" class="font-mono topic-text">topic: payment-events</text>
+
+    <rect x="10" y="146" width="130" height="20" rx="4" fill="#18181b" stroke="#3f3f46"/>
+    <text x="75" y="159.5" text-anchor="middle" class="font-mono topic-text">topic: order-summary</text>
+
+    <rect x="10" y="172" width="130" height="20" rx="4" fill="#18181b" stroke="#3f3f46"/>
+    <text x="75" y="185.5" text-anchor="middle" class="font-mono topic-text">topic: audit-topic</text>
+  </g>
+
+  <!-- Connectors and Data Flow Wires -->
+
+  <!-- API Gateway ingress routes -->
+  <path d="M144 111 L174 111" stroke="#38bdf8" stroke-width="1.6" fill="none"/>
+  <polygon points="174,111 166,107 166,115" fill="#38bdf8"/>
+
+  <path d="M144 255 C160 255, 160 255, 174 255" stroke="#38bdf8" stroke-width="1.6" fill="none"/>
+  <polygon points="174,255 166,251 166,259" fill="#38bdf8"/>
+
+  <!-- Top Sequence: User (1) to Product (2) browse flow -->
+  <g transform="translate(360, 101)">
+    <line x1="0" y1="10" x2="36" y2="10" stroke="#06b6d4" stroke-width="1.6"/>
+    <polygon points="36,10 28,6 28,14" fill="#06b6d4"/>
+    <rect x="3" y="-3" width="30" height="12" rx="3" fill="#0f172a" stroke="#1e293b"/>
+    <text x="18" y="5.5" text-anchor="middle" class="wire-label" fill="#06b6d4">browse</text>
+  </g>
+
+  <!-- Top Sequence: Product (2) to Cart (3) add-item flow -->
+  <g transform="translate(582, 101)">
+    <line x1="0" y1="10" x2="36" y2="10" stroke="#10b981" stroke-width="1.6"/>
+    <polygon points="36,10 28,6 28,14" fill="#10b981"/>
+    <rect x="2" y="-3" width="32" height="12" rx="3" fill="#0f172a" stroke="#1e293b"/>
+    <text x="18" y="5.5" text-anchor="middle" class="wire-label" fill="#10b981">add-item</text>
+  </g>
+
+  <!-- Sync Link 1: Order Service to User Service UserFeignClient -->
+  <path d="M420 220 C420 185, 330 185, 330 146" stroke="#06b6d4" stroke-width="1.5" stroke-dasharray="3 3" fill="none"/>
+  <polygon points="330,146 325,154 335,154" fill="#06b6d4"/>
+  <polygon points="420,220 415,212 425,212" fill="#06b6d4"/>
+  <rect x="330" y="174" width="76" height="14" rx="3" fill="#0f172a" stroke="#083344"/>
+  <text x="368" y="184.5" text-anchor="middle" class="wire-label" fill="#22d3ee">Feign: UserSync</text>
+
+  <!-- Sync Link 2: Order Service to Product Service ProductFeignClient -->
+  <line x1="489" y1="220" x2="489" y2="146" stroke="#10b981" stroke-width="1.6" stroke-dasharray="3 3"/>
+  <polygon points="489,146 485,154 493,154" fill="#10b981"/>
+  <polygon points="489,220 485,212 493,212" fill="#10b981"/>
+  <rect x="444" y="174" width="90" height="14" rx="3" fill="#0f172a" stroke="#064e3b"/>
+  <text x="489" y="184.5" text-anchor="middle" class="wire-label" fill="#34d399">Feign: ProductSync</text>
+
+  <!-- Sync Link 3: Order Service to Cart Service CartFeignClient -->
+  <path d="M558 220 C558 185, 650 185, 650 146" stroke="#f59e0b" stroke-width="1.5" stroke-dasharray="3 3" fill="none"/>
+  <polygon points="650,146 645,154 655,154" fill="#f59e0b"/>
+  <polygon points="558,220 553,212 563,212" fill="#f59e0b"/>
+  <rect x="568" y="174" width="76" height="14" rx="3" fill="#0f172a" stroke="#451a03"/>
+  <text x="606" y="184.5" text-anchor="middle" class="wire-label" fill="#fbbf24">Feign: CartSync</text>
+
+  <!-- Order Service (4) to Payment Service (5) Asynchronous Kafka order-events -->
+  <g transform="translate(582, 245)">
+    <line x1="0" y1="10" x2="36" y2="10" stroke="#f472b6" stroke-width="1.8" stroke-dasharray="3 3"/>
+    <polygon points="36,10 28,6 28,14" fill="#f472b6"/>
+    <rect x="-2" y="-3" width="40" height="12" rx="3" fill="#0f172a" stroke="#1e293b"/>
+    <text x="18" y="5.5" text-anchor="middle" class="wire-label" fill="#f472b6">order-ev</text>
+  </g>
+
+  <!-- Payment Service (5) to Apache Kafka payment-events -->
+  <g transform="translate(804, 245)">
+    <line x1="0" y1="10" x2="36" y2="10" stroke="#f472b6" stroke-width="1.8"/>
+    <polygon points="36,10 28,6 28,14" fill="#f472b6"/>
+    <rect x="-1" y="-3" width="38" height="12" rx="3" fill="#0f172a" stroke="#1e293b"/>
+    <text x="18" y="5.5" text-anchor="middle" class="wire-label" fill="#f472b6">pay-ev</text>
+  </g>
+
+  <!-- Kafka Streams Join Wire from Order and Payment -->
+  <path d="M360 255 L396 255" stroke="#ec4899" stroke-width="1.6" stroke-dasharray="2 2"/>
+  <polygon points="360,255 368,251 368,259" fill="#ec4899"/>
+  <rect x="362" y="242" width="32" height="12" rx="3" fill="#0f172a" stroke="#1e293b"/>
+  <text x="378" y="251.5" text-anchor="middle" class="wire-label" font-size="7" fill="#ec4899">join-in</text>
+
+  <!-- 5. Observability, Service Discovery and Telemetry Bar Bottom -->
+  <g transform="translate(32, 308)">
+    <rect width="956" height="36" rx="6" fill="#080f1d" stroke="#1e293b" stroke-width="1"/>
+    <text x="16" y="22" class="font-mono" font-size="9" font-weight="700" fill="#38bdf8" letter-spacing="0.5">OBSERVABILITY &amp; TRACING:</text>
+    
+    <!-- Badges Indicators -->
+    <g transform="translate(200, 9)">
+      <rect width="100" height="18" rx="4" fill="#0f172a" stroke="#334155"/>
+      <circle cx="8" cy="9" r="3" fill="#3b82f6"/>
+      <text x="56" y="12.5" text-anchor="middle" class="font-mono" font-size="8.5" fill="#cbd5e1">K8s Cluster</text>
+    </g>
+
+    <g transform="translate(310, 9)">
+      <rect width="110" height="18" rx="4" fill="#0f172a" stroke="#334155"/>
+      <circle cx="8" cy="9" r="3" fill="#10b981"/>
+      <text x="61" y="12.5" text-anchor="middle" class="font-mono" font-size="8.5" fill="#cbd5e1">Eureka (8761)</text>
+    </g>
+
+    <g transform="translate(430, 9)">
+      <rect width="110" height="18" rx="4" fill="#0f172a" stroke="#334155"/>
+      <circle cx="8" cy="9" r="3" fill="#06b6d4"/>
+      <text x="61" y="12.5" text-anchor="middle" class="font-mono" font-size="8.5" fill="#cbd5e1">Zipkin (9411)</text>
+    </g>
+
+    <g transform="translate(550, 9)">
+      <rect width="110" height="18" rx="4" fill="#0f172a" stroke="#334155"/>
+      <circle cx="8" cy="9" r="3" fill="#f59e0b"/>
+      <text x="61" y="12.5" text-anchor="middle" class="font-mono" font-size="8.5" fill="#cbd5e1">Prometheus</text>
+    </g>
+
+    <g transform="translate(670, 9)">
+      <rect width="100" height="18" rx="4" fill="#0f172a" stroke="#334155"/>
+      <circle cx="8" cy="9" r="3" fill="#f97316"/>
+      <text x="56" y="12.5" text-anchor="middle" class="font-mono" font-size="8.5" fill="#cbd5e1">Grafana</text>
+    </g>
+
+    <g transform="translate(780, 9)">
+      <rect width="115" height="18" rx="4" fill="#0f172a" stroke="#334155"/>
+      <circle cx="8" cy="9" r="3" fill="#ec4899"/>
+      <text x="63" y="12.5" text-anchor="middle" class="font-mono" font-size="8.5" fill="#cbd5e1">ELK (Fluentd)</text>
+    </g>
+  </g>
+</svg>
