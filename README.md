@@ -139,7 +139,7 @@ A distributed, resilient e-commerce ecosystem architected with **decoupled micro
 | 🛍️ **Eshop Multi-Role Storefront** | `Next.js` `TypeScript` `RBAC` | Multi-role portals, protected routes, cart & orders | [**Live Demo ↗**](https://eshop-ai-seven.vercel.app/) |
 | 📚 **Library Management System** | `React` `Node` `MongoDB` | Role-based portal for Admins, Librarians & Users | [**Live Demo ↗**](https://lm-mern.onrender.com/) |
 | 👨‍💻 **Developers Hub** | `MERN` `Redux` `REST` | Full developer network with social profiles & posts | [**Live Demo ↗**](https://developershub-mern.onrender.com/) |
-| 💬 **Real-Time Social App** | `React` `Socket.io` `Node` | Instant messaging, live presence & social feeds | [**Live Demo ↗**](https://mern-social-client-8zyd.onrender.com/) |
+| 💬 **Real-Time Social App** | `React` `Socket.io` `Node` | Instant messaging, live presence & social feeds | [**Live Demo ↗**](https://socisleith-messenger.onrender.com/) |
 | 📝 **Blog Publishing Platform** | `React` `Node` `MongoDB` | Author dashboards, rich creation & public discovery | [**Live Demo ↗**](https://mern-blog-app-chm0.onrender.com/) |
 | 🍽️ **Restaurant Table Booking** | `React` `JavaScript` `CSS3` | Table reservations, filtered menus & table ordering | [**Live Demo ↗**](https://resproj.netlify.app/) |
 | ⚡ **Firebase Cloud Records CRUD** | `React` `Firebase` `Firestore` | Real-time cloud sync, instant record mutations | [**Live Demo ↗**](https://reactfirebasecrudfunc.netlify.app/) |
