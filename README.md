@@ -6,7 +6,6 @@
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Palla%20Venkatesh-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/palla-venkatesh-59106a175/)
 [![Email](https://img.shields.io/badge/Email-palla09523@gmail.com-EA4335?style=for-the-badge&logo=gmail&logoColor=white)](mailto:palla09523@gmail.com)
-[![Call](https://img.shields.io/badge/Call%20%2F%20WhatsApp-%2B91%209494522323-25D366?style=for-the-badge&logo=whatsapp&logoColor=white)](tel:+919494522323)
 [![Live Storefront](https://img.shields.io/badge/Live%20Storefront-eshop--ai-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://eshop-ai-seven.vercel.app/)
 [![Profile Views](https://komarev.com/ghpvc/?username=palla023&label=Profile%20Views&color=0ea5e9&style=for-the-badge)](https://github.com/palla023)
 
